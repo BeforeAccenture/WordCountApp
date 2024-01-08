@@ -1,19 +1,9 @@
 {% extends "wordcounter/base.html" %}
 {% block body_block %}
-{% if WordCount %}
-<p> Word's : {{WordCount}} </p>
-{% endif %}
-{% if LineCount %}
-<p> Number Of Lines : {{LineCount}} </p>
-{% endif %}
-{% if LetterCount %}
-<p> Number Of Letters : {{LetterCount}} </p>
-{% endif %}
 {% if Frequences %}
 <h3>Frequences Of Words </h3>
 {% for key,value in Frequences.items %}
 <p>{{key}} {{value}}</p>
 {% endfor %}
 {% endif %}
-
 {% endblock %}
