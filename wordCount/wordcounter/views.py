@@ -30,18 +30,19 @@ def index(request):
                 #     my_data["LineCount"] = len(li)
                 # if form.cleaned_data["LetterCount"]:
                 #     my_data["LetterCount"] = len(re.split(r"[a-zA-Z]",st))
-                if form.cleaned_data["Frequences"]:
-                    di = {}
-                    li = re.split(r"[.?,!\s]+",st)
-                    for i in li:
-                        di[i] = di.get(i,0) + 1
-                    my_data["Frequences"] = di
-                return render(request,"wordcounter/results.html",context = my_data)
-    print(form.changed_data)
-    return render(request,"wordcounter/index.html",{"form":form})
+                di = {}
+                li = re.split(r"[''.?,!\s]+",st)
+                for i in li:
+                    di[i] = di.get(i,0) + 1
+                my_data["Frequences"] = di
+                my_data["form"]=form
+                return render(request,"wordcounter/base.html",context = my_data)
+    # print(form.changed_data)
+    return render(request,"wordcounter/base.html",{"form":form})
 
+#at present for this project it is not in use. If you want you can comment out this function or view.
 def word_counter(request):
-    
+    print("helo")
     if request.method == "POST":
        
         # print(form)

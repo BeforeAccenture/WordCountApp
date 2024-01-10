@@ -1,9 +1,0 @@
-{% extends "wordcounter/base.html" %}
-{% block body_block %}
-{% if Frequences %}
-<h3>Frequences Of Words </h3>
-{% for key,value in Frequences.items %}
-<p>{{key}} {{value}}</p>
-{% endfor %}
-{% endif %}
-{% endblock %}

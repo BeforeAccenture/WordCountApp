@@ -1,29 +1,88 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="{% static 'javascript/words.js' %}"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Document</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    
 </head>
-<body>
-    <nav class="navbar navbar-default navbar-static-top">
-        <div class="container">
-            <ul class="nav navbar-nav">
-                <li><a class="navbar-brand" href="{% url 'index' %}">BRAND</a></li>
-                <li><a class="navbar-link" href="{% url 'admin:index' %}">ADMIN</a></li>
-                {% comment %} <li><a class="navbar-link" href="{% url 'first_app:other' %}">Other</a></li> {% endcomment %}
-            </ul>
+
+<body onload="countWords()">
+    <div class="container-fluid" style="display:flex;">
+        <div style="width: 63%; padding: 10px; ">
+            <div class="form-floating">
+                <form method = "post">
+                    {{form}}
+                    {% csrf_token %}
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <input type="submit" value="Frequences" class="btn btn-primary">
+                    </div>
+                </form>
+            </div>
+            
         </div>
-    </nav>
-    <div class=""container>
-        {% block body_block %}
-        <!--  -->
-        {% endblock %}
+        <div style="width: 35%;  padding :10px;">
+          
+                <div class="container">
+  
+                    <div class="output">
+                      <div>
+                        <div>
+                        <span id="words">0</span>
+                        </div>
+                        <div id = "half" style="width:45%;  padding-left:2%">
+                        <p>Words</p>
+                        </div>
+                      </div>
+                      <div style="display: flex;">
+                        <div>
+                        <span id="letters">0</span>
+                        </div>
+                        <div style="width:45%;  padding-left:2%;">
+                        <p>Characters</p>
+                        </div>
+                      </div>
+                      <div style="display: flex; padding-left:2%;">
+                        <div>
+                        <span id="lines">0</span>
+                        </div>
+                        <div style="width:45%;">
+                        <p>Lines</p>
+                        </div>
+                      </div>
+                      
+                     
+                    </div>
+                  </div>
+            </div>
+        
+    
     </div>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="{% static 'javascript/counts.js' %}"></script>
+  <div style="padding:20px; border:solid 2px; border-radius:10px; margin:10px">
+    {% if Frequences %}
+{% comment %} <h3>Frequences Of Words </h3> {% endcomment %}
+<table class="table table-dark table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Word</th>
+            <th scope="col">Frequence</th>
+        </tr>
+    </thead>
+    <tbody class="table-group-divider">
+        {% for key,value in Frequences.items %}
+        <tr>
+            <td>{{key}}</td>
+            <td>{{value}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endif %}
+    </div>
 </body>
 </html>
