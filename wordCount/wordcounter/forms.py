@@ -9,3 +9,4 @@ class TextForm(forms.Form):
     # WordCount = forms.BooleanField(required=False)
     # LineCount = forms.BooleanField(required=False)
     # LetterCount = forms.BooleanField(required=False)
+    sentence.label=''
