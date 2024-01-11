@@ -18,7 +18,7 @@
   .container {
     width: 90%;
     height: 100%;
-    max-width: fit-content;
+    /* max-width: fit-content; */
     margin: 0 auto;
     padding: 20px;
     background-image: linear-gradient(120deg, #f093fb 0%, #f5576c 100%);
@@ -29,6 +29,16 @@
   .container * {
     border: none;
     outline: none;
+  }
+
+  .container-fluid {
+    display: flex;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .container-fluid {
+      display: block;
+    }
   }
   
   
@@ -42,8 +52,8 @@
   
   .output div {
     display: flex;
-    flex-direction: row-reverse;
-    justify-content: left;
+    flex-direction:row-reverse;
+    justify-content:flex-end;
     align-items: left;
     text-align: center;
     margin: 10px;
@@ -57,17 +67,48 @@
   span {
     display: block;
     
-    margin-bottom: 5px;
+    /* margin-bottom: 5px; */
     font-weight: 600;
     color: rgb(255, 255, 255);
     font-size: 2rem;
   }
   
   p {
-    font-size: 2.0rem;
+    font-size: 2.0vw;
     
     color: rgb(255, 255, 255);
     font-weight: 500;
     
   }
-  
+  .upper{
+    width: 63%; 
+    padding: 10px; 
+  }
+  @media screen and
+  (max-width: 768px) {
+      .form-floating {
+        width:100%;
+  }
+  .upper{
+    width:100%;
+  }
+  .output{
+    width:100%;
+  }
+  .container{
+    width: 100%;
+  }
+}
+
+.upper2{
+  width: 35%;  
+  padding :10px;
+}
+@media screen and
+(max-width: 768px) {
+
+.upper2{
+  width:100%;
+}
+}
+
