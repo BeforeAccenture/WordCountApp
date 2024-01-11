@@ -13,8 +13,8 @@
 </head>
 
 <body onload="countWords()">
-    <div class="container-fluid" style="display:flex;">
-        <div style="width: 63%; padding: 10px; ">
+    <div class="container-fluid">
+        <div class="upper">
             <div class="form-floating">
                 <form method = "post">
                     {{form}}
@@ -26,32 +26,32 @@
             </div>
             
         </div>
-        <div style="width: 35%;  padding :10px;">
+        <div  class="upper2">
           
                 <div class="container">
   
                     <div class="output">
                       <div>
-                        <div>
+                        <div class="underdiv">
                         <span id="words">0</span>
                         </div>
-                        <div id = "half" style="width:45%;  padding-left:2%">
+                        <div id = "half" style="width:45%;  padding-left:2%" class="underdiv">
                         <p>Words</p>
                         </div>
                       </div>
                       <div style="display: flex;">
-                        <div>
+                        <div class="underdiv">
                         <span id="letters">0</span>
                         </div>
-                        <div style="width:45%;  padding-left:2%;">
+                        <div style="width:45%;  padding-left:2%;" class="underdiv">
                         <p>Characters</p>
                         </div>
                       </div>
                       <div style="display: flex; padding-left:2%;">
-                        <div>
+                        <div class="underdiv">
                         <span id="lines">0</span>
                         </div>
-                        <div style="width:45%;">
+                        <div style="width:45%;" class="underdiv">
                         <p>Lines</p>
                         </div>
                       </div>
